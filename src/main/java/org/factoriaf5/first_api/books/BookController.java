@@ -2,10 +2,7 @@ package org.factoriaf5.first_api.books;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,5 +33,10 @@ public class BookController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
+    }
+
+    @PostMapping
+    public Book createBook(@RequestBody Book book) {
+        return book;
     }
 }
