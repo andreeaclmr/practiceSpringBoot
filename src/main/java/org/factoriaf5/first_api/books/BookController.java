@@ -24,5 +24,9 @@ public class BookController {
         return this.bookRepository.findAll();
     }
 
+    @GetMapping("/{isbn}")
+    public Book getBookByIsbn(@PathVariable String isbn) {
+        return bookRepository.findByIsbn(isbn);
 
+    }
 }

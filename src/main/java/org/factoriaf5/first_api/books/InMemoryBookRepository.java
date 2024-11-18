@@ -10,6 +10,7 @@ public class InMemoryBookRepository implements BookRepository {
 
     public InMemoryBookRepository() {
         bookDB.add(new Book("A123", "titulo del libro 1", "author del libro 1"));
+        bookDB.add(new Book("A124", "titulo del libro 2", "author del libro 2"));
     }
 
     @Override
@@ -19,6 +20,9 @@ public class InMemoryBookRepository implements BookRepository {
 
    @Override
    public Book findByIsbn(String isbn) {
+        for (Book book : bookDB) {
+          if (book.getIsbn().equals(isbn)) return book;
+        }
         return null;
    }
 }
