@@ -1,9 +1,11 @@
 package org.factoriaf5.first_api.books;
 
+import org.springframework.web.servlet.tags.form.OptionsTag;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class InMemoryBookRepository implements BookRepository {
     private final static List<Book> bookDB = new ArrayList<>();
@@ -19,10 +21,10 @@ public class InMemoryBookRepository implements BookRepository {
     }
 
    @Override
-   public Book findByIsbn(String isbn) {
+   public Optional<Book> findByIsbn(String isbn) {
         for (Book book : bookDB) {
-          if (book.getIsbn().equals(isbn)) return book;
+          if (book.getIsbn().equals(isbn)) return Optional.of(book);
         }
-        return null;
+        return Optional.empty();
    }
 }

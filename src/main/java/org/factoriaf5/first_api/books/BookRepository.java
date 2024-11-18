@@ -6,5 +6,5 @@ public interface BookRepository {
 
     List<Book> findAll();
 
-    Book findByIsbn(String isbn);
+    Optional<Book> findByIsbn(String isbn);
 }
